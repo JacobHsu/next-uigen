@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "cross-env NODE_OPTIONS=\"--require ./node-compat.cjs\" next dev --turbopack",
     "dev:daemon": "cross-env NODE_OPTIONS=\"--require ./node-compat.cjs\" next dev --turbopack",
-    "build": "cross-env NODE_OPTIONS=\"--require ./node-compat.cjs\" next build",
+    "build": "prisma migrate deploy && cross-env NODE_OPTIONS=\"--require ./node-compat.cjs\" next build",
+    "postinstall": "prisma generate",
     "start": "cross-env NODE_OPTIONS=\"--require ./node-compat.cjs\" next start",
     "lint": "next lint",
     "test": "vitest",
